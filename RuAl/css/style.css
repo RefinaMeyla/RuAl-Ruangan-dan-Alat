@@ -1,0 +1,683 @@
+/* ==========================================================
+   RuAl - style.css (revisi)
+   External Style Sheet (Modul 4), dipakai bersama Bootstrap 5.3
+   oleh semua halaman: index (login), mahasiswa, dan petugas.
+   ========================================================== */
+
+/* ---------- Warna & font (variabel CSS) ---------- */
+:root {
+  --ruai-acc: #4f6466;          /* slate teal: warna utama (palet) */
+  --ruai-acc-ink: #ffffff;
+  --ruai-ink: #243133;          /* teks utama */
+  --ruai-mut: #566a6c;          /* teks pendukung */
+  --ruai-line: #c7cfd0;
+  --ruai-card: #ffffff;
+  --ruai-tint: #e4e8e9;         /* latar lembut: header tabel, chip */
+  --ruai-ok: #386e60;
+  --ruai-no: #9b5240;           /* terakota: aksi hapus / tolak */
+  --ruai-warm: #9b5240;
+  --ruai-grad: linear-gradient(135deg, #34484a 0%, #4f6466 55%, #5b7476 100%);
+  --ruai-foot: #2b3b3d;
+
+  --bs-body-bg: #f0f3f3;
+  --bs-body-color: var(--ruai-ink);
+  --bs-body-font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  --bs-primary: var(--ruai-acc);
+  --bs-primary-rgb: 79, 100, 102;
+  --bs-secondary-rgb: 86, 106, 108;
+  --bs-secondary-color: var(--ruai-mut);
+  --bs-link-color: var(--ruai-acc);
+  --bs-border-color: var(--ruai-line);
+}
+
+[data-bs-theme="dark"] {
+  --ruai-acc: #94a2a3;
+  --ruai-acc-ink: #1b2627;
+  --ruai-ink: #e6ecec;
+  --ruai-mut: #a9b6b7;
+  --ruai-line: #3d5254;
+  --ruai-card: #1f2d2f;
+  --ruai-tint: #2a3b3d;
+  --ruai-ok: #8fd1bd;
+  --ruai-no: #e8a090;
+  --ruai-grad: linear-gradient(135deg, #1c2a2b 0%, #2f4143 60%, #3b5254 100%);
+  --ruai-foot: #0f1819;
+
+  --bs-body-bg: #141d1e;
+  --bs-primary: #94a2a3;
+  --bs-primary-rgb: 148, 162, 163;
+  --bs-secondary-rgb: 169, 182, 183;
+  --bs-secondary-bg: #1f2d2f;
+  --bs-tertiary-bg: #1f2d2f;
+}
+
+/* ---------- Tata letak dasar: footer selalu di paling bawah ---------- */
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* ---------- Header (navbar + judul halaman) ---------- */
+.ruai-header {
+  background: var(--ruai-grad);
+  color: #fff;
+  border-radius: 0 0 24px 24px;
+  box-shadow: 0 10px 28px rgba(36, 49, 51, .22);
+}
+
+.ruai-nav {
+  background: transparent;
+  border: 0;
+  padding: 14px 0;
+}
+
+.ruai-nav .navbar-brand.logo {
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.logo i {
+  font-style: normal;
+  background: #fff;
+  color: #4f6466;
+  padding: 0 7px;
+  border-radius: 6px;
+  margin-right: 6px;
+}
+
+.ruai-nav .navbar-nav {
+  gap: 4px;
+}
+
+.ruai-nav .nav-link {
+  color: rgba(255, 255, 255, .86);
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+
+.ruai-nav .nav-link:hover {
+  background: rgba(255, 255, 255, .12);
+  color: #fff;
+}
+
+.ruai-nav .nav-link.active {
+  background: rgba(255, 255, 255, .22);
+  color: #fff;
+}
+
+.ruai-nav .navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, .45);
+  padding: 6px 10px;
+}
+
+.ruai-nav .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+.page-head {
+  padding: 18px 0 40px;
+}
+
+.page-head h1.judul {
+  color: #fff;
+}
+
+.page-head .sub {
+  color: rgba(255, 255, 255, .84);
+  margin-bottom: 0;
+}
+
+/* ---------- Menu akun profil (kanan atas navbar) ---------- */
+.btn-akun {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, .16);
+  border: 1px solid rgba(255, 255, 255, .28);
+  color: #fff;
+  border-radius: 999px;
+  padding: 4px 14px 4px 4px;
+}
+
+.btn-akun:hover,
+.btn-akun:focus,
+.btn-akun.show {
+  background: rgba(255, 255, 255, .26);
+  border-color: rgba(255, 255, 255, .4);
+  color: #fff;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  color: #4f6466;
+  font-weight: 800;
+  font-size: 13px;
+  flex: none;
+}
+
+.avatar-lg {
+  width: 48px;
+  height: 48px;
+  font-size: 17px;
+  background: var(--ruai-acc);
+  color: var(--ruai-acc-ink);
+}
+
+.akun-panel {
+  min-width: 280px;
+  background: var(--ruai-card);
+  border: 1px solid var(--ruai-line);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 8px !important;
+}
+
+.akun-kepala {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--ruai-tint);
+}
+
+.badge-role {
+  background: var(--ruai-acc);
+  color: var(--ruai-acc-ink);
+  font-weight: 600;
+}
+
+.akun-detail {
+  margin: 0;
+  padding: 12px 16px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 14px;
+  font-size: 14px;
+}
+
+.akun-detail dt {
+  color: var(--ruai-mut);
+  font-weight: 600;
+}
+
+.akun-detail dd {
+  margin: 0;
+  word-break: break-word;
+}
+
+.akun-aksi {
+  padding: 12px 16px 16px;
+  border-top: 1px solid var(--ruai-line);
+}
+
+/* ---------- Judul halaman ---------- */
+h1.judul {
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.sub {
+  color: var(--ruai-mut);
+}
+
+/* ---------- Tombol (ukuran & jarak seragam) ---------- */
+.btn {
+  font-weight: 600;
+  font-size: 14px;
+  border-width: 1px;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+.btn-sm {
+  font-size: 13px;
+  padding: 6px 12px;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--ruai-acc);
+  --bs-btn-border-color: var(--ruai-acc);
+  --bs-btn-color: var(--ruai-acc-ink);
+  --bs-btn-hover-bg: var(--ruai-acc);
+  --bs-btn-hover-border-color: var(--ruai-acc);
+  --bs-btn-hover-color: var(--ruai-acc-ink);
+  --bs-btn-active-bg: var(--ruai-acc);
+  --bs-btn-active-border-color: var(--ruai-acc);
+  --bs-btn-active-color: var(--ruai-acc-ink);
+  --bs-btn-disabled-bg: var(--ruai-acc);
+  --bs-btn-disabled-border-color: var(--ruai-acc);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--ruai-acc);
+  --bs-btn-border-color: var(--ruai-acc);
+  --bs-btn-hover-bg: var(--ruai-acc);
+  --bs-btn-hover-border-color: var(--ruai-acc);
+  --bs-btn-hover-color: var(--ruai-acc-ink);
+  --bs-btn-active-bg: var(--ruai-acc);
+  --bs-btn-active-border-color: var(--ruai-acc);
+  --bs-btn-active-color: var(--ruai-acc-ink);
+}
+
+/* Tombol aksi di tabel: Setujui / Tolak / Selesai Peminjaman / Hapus */
+.aksi-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn-aksi {
+  min-width: 96px;
+  border-width: 1px;
+  border-style: solid;
+  line-height: 1.4;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn-aksi.btn-selesai {
+  min-width: 150px;
+}
+
+.btn-success.btn-aksi {
+  --bs-btn-bg: #386e60;
+  --bs-btn-border-color: #386e60;
+  --bs-btn-hover-bg: #2d5a4e;
+  --bs-btn-hover-border-color: #2d5a4e;
+  --bs-btn-active-bg: #2d5a4e;
+  --bs-btn-active-border-color: #2d5a4e;
+  --bs-btn-disabled-bg: #386e60;
+  --bs-btn-disabled-border-color: #386e60;
+}
+
+.btn-danger.btn-aksi {
+  --bs-btn-bg: #9b5240;
+  --bs-btn-border-color: #9b5240;
+  --bs-btn-hover-bg: #82432f;
+  --bs-btn-hover-border-color: #82432f;
+  --bs-btn-active-bg: #82432f;
+  --bs-btn-active-border-color: #82432f;
+  --bs-btn-disabled-bg: #9b5240;
+  --bs-btn-disabled-border-color: #9b5240;
+}
+
+.btn-outline-danger.btn-aksi {
+  --bs-btn-color: #9b5240;
+  --bs-btn-border-color: #9b5240;
+  --bs-btn-hover-bg: #9b5240;
+  --bs-btn-hover-border-color: #9b5240;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: #9b5240;
+  --bs-btn-active-border-color: #9b5240;
+  --bs-btn-active-color: #fff;
+}
+
+[data-bs-theme="dark"] .btn-outline-danger.btn-aksi {
+  --bs-btn-color: #e8a090;
+  --bs-btn-border-color: #e8a090;
+  --bs-btn-hover-color: #1b2627;
+  --bs-btn-hover-bg: #e8a090;
+  --bs-btn-hover-border-color: #e8a090;
+}
+
+/* ---------- Tab (nav-pills) di dalam halaman ---------- */
+.nav-pills.tab-halaman {
+  gap: 8px;
+}
+
+.nav-pills.tab-halaman .nav-link {
+  background: var(--ruai-card);
+  border: 1px solid var(--ruai-line);
+  color: var(--ruai-ink);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 16px;
+}
+
+.nav-pills.tab-halaman .nav-link.active {
+  background: var(--ruai-acc);
+  border-color: var(--ruai-acc);
+  color: var(--ruai-acc-ink);
+}
+
+/* ---------- Kartu (katalog, statistik, tabel) ---------- */
+.card,
+.table-wrap,
+.stat-card,
+.login-card {
+  background: var(--ruai-card);
+  border: 1px solid var(--ruai-line);
+  border-radius: 14px;
+}
+
+.card {
+  --bs-card-bg: var(--ruai-card);
+  --bs-card-border-color: var(--ruai-line);
+}
+
+.item-card {
+  border-left: 6px solid var(--ruai-acc);
+}
+
+.item-card.ruang {
+  border-left-color: var(--ruai-ok);
+}
+
+.item-card .stok {
+  color: var(--ruai-ink);
+}
+
+.item-card .stok.habis {
+  color: var(--ruai-no);
+}
+
+.stat-card {
+  padding: 16px;
+  border-top: 4px solid var(--ruai-acc);
+}
+
+.stat-card.warm { border-top-color: var(--ruai-warm); }
+.stat-card.ok { border-top-color: var(--ruai-ok); }
+
+.stat-card b {
+  font-size: 28px;
+  line-height: 1.1;
+  display: block;
+}
+
+.stat-card span {
+  color: var(--ruai-mut);
+  font-size: 13px;
+}
+
+.ket {
+  color: var(--ruai-mut);
+}
+
+/* ---------- Chip lampiran ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--ruai-tint);
+  border: 1px solid var(--ruai-line);
+  border-radius: 8px;
+  padding: 3px 8px;
+  font-size: 13px;
+  max-width: 100%;
+  margin: 2px 4px 2px 0;
+}
+
+.chip b {
+  background: var(--ruai-acc);
+  color: var(--ruai-acc-ink);
+  border-radius: 4px;
+  padding: 0 5px;
+  font-size: 11px;
+}
+
+.chip small {
+  color: var(--ruai-mut);
+}
+
+.chip .btn-link {
+  font-size: 13px;
+  text-decoration: none;
+  padding: 0;
+}
+
+/* ---------- Tabel (DataTables + Bootstrap) ---------- */
+.table-wrap {
+  padding: 16px;
+}
+
+table.dataTable td,
+table.dataTable th {
+  vertical-align: middle;
+}
+
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-striped-bg: rgba(79, 100, 102, .05);
+  --bs-table-hover-bg: rgba(79, 100, 102, .1);
+  --bs-table-border-color: var(--ruai-line);
+}
+
+[data-bs-theme="dark"] .table {
+  --bs-table-striped-bg: rgba(148, 162, 163, .06);
+  --bs-table-hover-bg: rgba(148, 162, 163, .12);
+  --bs-table-color: var(--ruai-ink);
+  --bs-table-striped-color: var(--ruai-ink);
+  --bs-table-hover-color: var(--ruai-ink);
+}
+
+.table thead th {
+  background: var(--ruai-tint);
+  color: var(--ruai-ink);
+  border-bottom: 1px solid var(--ruai-line);
+}
+
+.badge-selesai {
+  background: #386e60;
+  color: #fff;
+}
+
+/* ---------- Login ---------- */
+.login-card {
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 28px;
+  box-shadow: 0 12px 32px rgba(36, 49, 51, .12);
+}
+
+.role-pick {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.role-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  height: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--ruai-line);
+  border-radius: 12px;
+  background: var(--ruai-card);
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+
+.role-card b {
+  font-size: 15px;
+}
+
+.role-card span {
+  font-size: 12.5px;
+  color: var(--ruai-mut);
+  line-height: 1.35;
+}
+
+.role-card:hover {
+  border-color: var(--ruai-acc);
+}
+
+.btn-check:checked + .role-card {
+  border-color: var(--ruai-acc);
+  background: var(--ruai-tint);
+}
+
+.btn-check:focus-visible + .role-card {
+  outline: 3px solid var(--ruai-acc);
+  outline-offset: 2px;
+}
+
+.hint-demo {
+  background: var(--ruai-tint);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--ruai-mut);
+}
+
+/* ---------- Pratinjau lampiran ---------- */
+.pdf-frame {
+  width: 100%;
+  height: 70vh;
+  border: 0;
+}
+
+/* Modal mengikuti warna kartu */
+.modal-content {
+  background: var(--ruai-card);
+  border-radius: 14px;
+}
+
+/* ---------- Footer ---------- */
+.ruai-footer {
+  background: var(--ruai-foot);
+  color: rgba(255, 255, 255, .78);
+  margin-top: 48px;
+  padding: 32px 0 20px;
+  font-size: 14px;
+}
+
+.ruai-footer .logo {
+  font-weight: 800;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.ruai-footer a {
+  color: #fff;
+}
+
+.ruai-footer .foot-bawah {
+  border-top: 1px solid rgba(255, 255, 255, .16);
+  margin-top: 24px;
+  padding-top: 14px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, .62);
+}
+
+/* ---------- Fokus keyboard ---------- */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--ruai-acc);
+  outline-offset: 2px;
+}
+
+.ruai-header a:focus-visible,
+.ruai-header button:focus-visible {
+  outline-color: #fff;
+}
+
+@media (max-width: 767.98px) {
+  .ruai-nav .navbar-collapse {
+    margin-top: 12px;
+    gap: 12px;
+  }
+  .ruai-nav .btn-akun {
+    width: 100%;
+  }
+  .akun-panel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  h1.judul {
+    font-size: 24px;
+  }
+  .role-pick {
+    grid-template-columns: 1fr;
+  }
+  .login-card {
+    padding: 20px;
+  }
+}
+
+/* ---------- DataTables & paginasi mengikuti palet ---------- */
+table.dataTable.table-striped > tbody > tr.odd > * {
+  box-shadow: inset 0 0 0 9999px rgba(79, 100, 102, .07);
+}
+
+table.dataTable.table-hover > tbody > tr:hover > * {
+  box-shadow: inset 0 0 0 9999px rgba(79, 100, 102, .14);
+}
+
+[data-bs-theme="dark"] table.dataTable.table-striped > tbody > tr.odd > * {
+  box-shadow: inset 0 0 0 9999px rgba(148, 162, 163, .07);
+}
+
+[data-bs-theme="dark"] table.dataTable.table-hover > tbody > tr:hover > * {
+  box-shadow: inset 0 0 0 9999px rgba(148, 162, 163, .14);
+}
+
+.page-link {
+  color: var(--ruai-acc);
+  background: var(--ruai-card);
+  border-color: var(--ruai-line);
+}
+
+.page-link:hover {
+  background: var(--ruai-tint);
+  color: var(--ruai-acc);
+}
+
+.page-item.active .page-link {
+  background: var(--ruai-acc);
+  border-color: var(--ruai-acc);
+  color: var(--ruai-acc-ink);
+}
+
+.page-item.disabled .page-link {
+  background: var(--ruai-tint);
+  color: var(--ruai-mut);
+  border-color: var(--ruai-line);
+}
+
+.form-control,
+.form-select {
+  border-color: var(--ruai-line);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--ruai-acc);
+  box-shadow: 0 0 0 .2rem rgba(79, 100, 102, .25);
+}
+
+.form-control[readonly] {
+  background: var(--ruai-tint);
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1, "barang": 2, "jumlah": 2, "peminjam": "Dimas A. / 2210045",
+    "mulaiHari": 0, "selesaiHari": 3, "keperluan": "Praktikum rangkaian RC",
+    "status": "menunggu", "lampiran": []
+  },
+  {
+    "id": 2, "barang": 5, "jumlah": 1, "peminjam": "HIMA Informatika",
+    "mulaiHari": 2, "selesaiHari": 2, "keperluan": "Seminar proposal skripsi",
+    "status": "menunggu",
+    "lampiran": [
+      {
+        "nama": "surat-pengantar-hima.png", "ukuran": 48200, "tipe": "image/png",
+        "url": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='200'%3E%3Crect width='320' height='200' fill='%23fff' stroke='%23999'/%3E%3Ctext x='20' y='50' font-size='20' fill='%23222'%3ESurat Peminjaman Ruang%3C/text%3E%3Ctext x='20' y='90' font-size='14' fill='%23555'%3EContoh lampiran dari HIMA%3C/text%3E%3C/svg%3E"
+      }
+    ]
+  },
+  {
+    "id": 3, "barang": 3, "jumlah": 3, "peminjam": "Sinta M. / 2210311",
+    "mulaiHari": -2, "selesaiHari": 1, "keperluan": "Lomba hackathon internal",
+    "status": "disetujui", "lampiran": []
+  },
+  {
+    "id": 4, "barang": 1, "jumlah": 1, "peminjam": "Rani Putri / 2210123",
+    "mulaiHari": -6, "selesaiHari": -4, "keperluan": "Presentasi kelompok",
+    "status": "dikembalikan", "lampiran": []
+  }
+]

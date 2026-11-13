@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RuAl - Masuk</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS (Modul 5) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <!-- External Style Sheet (Modul 4) -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body data-halaman="login">
+
+  <header class="ruai-header">
+    <nav class="navbar ruai-nav" aria-label="Navigasi utama">
+      <div class="container">
+        <a class="navbar-brand logo" href="index.html"><i>R</i>RuAl</a>
+      </div>
+    </nav>
+    <div class="page-head">
+      <div class="container">
+        <h1 class="judul">Masuk ke RuAl</h1>
+        <p class="sub">Pilih peran, lalu masuk untuk meminjam alat dan ruangan lab.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-4 py-md-5">
+    <div class="login-card">
+      <form id="formLogin" novalidate>
+
+        <fieldset class="mb-3">
+          <legend class="form-label fs-6 fw-semibold">Masuk sebagai</legend>
+          <div class="role-pick">
+            <div>
+              <input type="radio" class="btn-check" name="peran" id="peranMhs" value="mahasiswa" checked>
+              <label class="role-card" for="peranMhs"><b>Mahasiswa</b><span>Ajukan pinjaman dan pantau statusnya</span></label>
+            </div>
+            <div>
+              <input type="radio" class="btn-check" name="peran" id="peranPtg" value="petugas">
+              <label class="role-card" for="peranPtg"><b>Petugas Laboratorium</b><span>Tinjau pengajuan dan kelola katalog</span></label>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="mb-3">
+          <label for="fId" class="form-label" id="lblId">NIM</label>
+          <input type="text" class="form-control" id="fId" name="id" autocomplete="username">
+        </div>
+
+        <div class="mb-3">
+          <label for="fSandi" class="form-label">Kata sandi</label>
+          <input type="password" class="form-control" id="fSandi" name="sandi" autocomplete="current-password">
+        </div>
+
+        <div id="fErr" class="alert alert-danger d-none py-2" role="alert"></div>
+
+        <button type="submit" class="btn btn-primary w-100">Masuk</button>
+
+        <div class="hint-demo mt-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <span id="hintDemo"></span>
+          <button type="button" class="btn btn-outline-primary btn-sm" id="btnIsi">Isi otomatis</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="ruai-footer">
+    <div class="container">
+      <div class="row g-3 align-items-start">
+        <div class="col-md-7">
+          <div class="logo"><i>R</i>RuAl</div>
+          <p class="mb-0">Peminjaman alat dan ruangan laboratorium dalam satu tempat: ajukan, pantau, dan kelola katalog.</p>
+        </div>
+        <div class="col-md-5 text-md-end">
+          <p class="mb-0">Butuh bantuan? Hubungi petugas laboratorium.</p>
+          <p class="mb-0">Data demo tersimpan di browser ini. <a href="#" id="btnReset">Reset data demo</a></p>
+        </div>
+      </div>
+      <div class="foot-bawah">&copy; 2026 RuAl. Peminjaman alat dan ruangan lab.</div>
+    </div>
+  </footer>
+
+  <!-- jQuery (Modul 5 & 6) -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+          integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <!-- Bootstrap JavaScript (Modul 5) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <!-- Plugin jQuery Validation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+  <!-- Script aplikasi -->
+  <script src="js/script.js"></script>
+</body>
+</html>

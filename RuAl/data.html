@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RuAl - Katalog</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS (Modul 5) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <!-- External Style Sheet (Modul 4) -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body data-halaman="data">
+
+  <!-- Header: navbar + judul halaman (warna berbeda dari konten) -->
+  <header class="ruai-header">
+    <nav class="navbar navbar-expand-md ruai-nav" aria-label="Navigasi utama">
+      <div class="container">
+        <a class="navbar-brand logo" href="index.html"><i>R</i>RuAl</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navUtama"
+                aria-controls="navUtama" aria-expanded="false" aria-label="Buka menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navUtama">
+          <!-- Menu dan akun profil diisi script.js sesuai jenis akun yang login -->
+          <ul class="navbar-nav me-auto" id="navMenu"></ul>
+          <div id="akunMenu"></div>
+        </div>
+      </div>
+    </nav>
+    <div class="page-head">
+      <div class="container">
+        <h1 class="judul">Mau pinjam apa hari ini?</h1>
+        <p class="sub">Pilih alat atau ruangan, isi form singkat, lalu tunggu persetujuan petugas.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-4">
+
+    <div id="alertError" class="alert alert-danger d-none" role="alert">
+      Data tidak bisa dimuat. Buka halaman ini lewat web server lokal (misalnya XAMPP:
+      <code>http://localhost/ruai/data.html</code> atau ekstensi Live Server), bukan dengan klik dua kali pada file.
+    </div>
+
+    <!-- Halaman Data: katalog alat dan ruangan (dari data/barang.json) -->
+    <div class="btn-group mb-3" role="group" aria-label="Filter katalog">
+      <button type="button" class="btn btn-outline-primary filter-btn active" data-filter="semua">Semua</button>
+      <button type="button" class="btn btn-outline-primary filter-btn" data-filter="alat">Alat</button>
+      <button type="button" class="btn btn-outline-primary filter-btn" data-filter="ruangan">Ruangan</button>
+    </div>
+    <div class="row g-3" id="katalog"></div>
+
+  </main>
+
+  <footer class="ruai-footer">
+    <div class="container">
+      <div class="row g-3 align-items-start">
+        <div class="col-md-7">
+          <div class="logo"><i>R</i>RuAl</div>
+          <p class="mb-0">Peminjaman alat dan ruangan laboratorium dalam satu tempat: ajukan, pantau, dan kelola katalog.</p>
+        </div>
+        <div class="col-md-5 text-md-end">
+          <p class="mb-0">Butuh bantuan? Hubungi petugas laboratorium.</p>
+          <p class="mb-0">Data demo tersimpan di browser ini. <a href="#" id="btnReset">Reset data demo</a></p>
+        </div>
+      </div>
+      <div class="foot-bawah">&copy; 2026 RuAl. Peminjaman alat dan ruangan lab.</div>
+    </div>
+  </footer>
+
+  <!-- Toast notifikasi -->
+  <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+    <div id="toastApp" class="toast text-bg-dark" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-body fw-semibold"></div>
+    </div>
+  </div>
+
+  <!-- jQuery (Modul 5 & 6) -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+          integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <!-- Bootstrap JavaScript (Modul 5) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <!-- Script aplikasi -->
+  <script src="js/script.js"></script>
+</body>
+</html>

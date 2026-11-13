@@ -1,0 +1,8 @@
+[
+  { "id": 1, "nama": "Proyektor Epson EB-X06", "tipe": "alat", "stok": 4, "lokasi": "Lab Multimedia" },
+  { "id": 2, "nama": "Osiloskop Digital", "tipe": "alat", "stok": 6, "lokasi": "Lab Elektronika" },
+  { "id": 3, "nama": "Laptop Praktikum", "tipe": "alat", "stok": 10, "lokasi": "Lab Komputer" },
+  { "id": 4, "nama": "Kamera DSLR Canon", "tipe": "alat", "stok": 2, "lokasi": "Studio Fotografi" },
+  { "id": 5, "nama": "Ruang Seminar B2.1", "tipe": "ruangan", "stok": 1, "lokasi": "Gedung B, lantai 2 · 60 kursi" },
+  { "id": 6, "nama": "Lab Jaringan", "tipe": "ruangan", "stok": 1, "lokasi": "Gedung C, lantai 1 · 30 PC" }
+]

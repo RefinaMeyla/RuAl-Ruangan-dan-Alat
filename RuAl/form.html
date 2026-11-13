@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RuAl - Form Pengajuan</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS (Modul 5) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <!-- External Style Sheet (Modul 4) -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body data-halaman="form">
+
+  <!-- Header: navbar + judul halaman (warna berbeda dari konten) -->
+  <header class="ruai-header">
+    <nav class="navbar navbar-expand-md ruai-nav" aria-label="Navigasi utama">
+      <div class="container">
+        <a class="navbar-brand logo" href="index.html"><i>R</i>RuAl</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navUtama"
+                aria-controls="navUtama" aria-expanded="false" aria-label="Buka menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navUtama">
+          <!-- Menu dan akun profil diisi script.js sesuai jenis akun yang login -->
+          <ul class="navbar-nav me-auto" id="navMenu"></ul>
+          <div id="akunMenu"></div>
+        </div>
+      </div>
+    </nav>
+    <div class="page-head">
+      <div class="container">
+        <h1 class="judul">Form pengajuan peminjaman</h1>
+        <p class="sub">Isi data berikut, lalu tunggu persetujuan petugas lab.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-4">
+
+    <div id="alertError" class="alert alert-danger d-none" role="alert">
+      Data tidak bisa dimuat. Buka halaman ini lewat web server lokal (misalnya XAMPP:
+      <code>http://localhost/ruai/form.html</code> atau ekstensi Live Server), bukan dengan klik dua kali pada file.
+    </div>
+
+    <!-- Halaman Form: pengajuan peminjaman -->
+    <div class="table-wrap p-3 p-md-4">
+      <form id="formPinjam" novalidate>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="fNama" class="form-label">Nama / NIM</label>
+            <input type="text" class="form-control" id="fNama" name="nama" readonly>
+            <div class="form-text">Diambil dari akun yang sedang masuk.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="fBarang" class="form-label">Alat / ruangan</label>
+            <select class="form-select" id="fBarang" name="barang"></select>
+            <div class="form-text" id="infoBarang"></div>
+          </div>
+
+          <div class="col-12" id="grupJumlah">
+            <label for="fJumlah" class="form-label">Jumlah</label>
+            <input type="number" class="form-control" id="fJumlah" name="jumlah" min="1" value="1">
+          </div>
+
+          <div class="col-6">
+            <label for="fMulai" class="form-label">Tanggal pinjam</label>
+            <input type="date" class="form-control" id="fMulai" name="mulai">
+          </div>
+          <div class="col-6">
+            <label for="fSelesai" class="form-label">Tanggal kembali</label>
+            <input type="date" class="form-control" id="fSelesai" name="selesai">
+          </div>
+
+          <div class="col-12">
+            <label for="fKeperluan" class="form-label">Keperluan</label>
+            <textarea class="form-control" id="fKeperluan" name="keperluan" rows="2"
+                      placeholder="Contoh: praktikum jaringan kelompok 3"></textarea>
+          </div>
+
+          <div class="col-12">
+            <label for="fFile" class="form-label">Surat &amp; bukti pendukung</label>
+            <input type="file" class="form-control" id="fFile" name="lampiran"
+                   accept="image/jpeg,image/png,application/pdf" multiple>
+            <div class="form-text">JPG, PNG, atau PDF. Maks. 3 file, 2 MB per file.</div>
+            <div id="fDaftar" class="mt-1"></div>
+          </div>
+
+          <div class="col-12">
+            <div id="fErr" class="alert alert-danger d-none py-2 mb-0" role="alert"></div>
+          </div>
+
+          <div class="col-12 d-flex justify-content-end gap-2">
+            <button type="button" class="btn btn-outline-primary" id="btnBatal">Batal</button>
+            <button type="submit" class="btn btn-primary">Ajukan peminjaman</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </main>
+
+  <footer class="ruai-footer">
+    <div class="container">
+      <div class="row g-3 align-items-start">
+        <div class="col-md-7">
+          <div class="logo"><i>R</i>RuAl</div>
+          <p class="mb-0">Peminjaman alat dan ruangan laboratorium dalam satu tempat: ajukan, pantau, dan kelola katalog.</p>
+        </div>
+        <div class="col-md-5 text-md-end">
+          <p class="mb-0">Butuh bantuan? Hubungi petugas laboratorium.</p>
+          <p class="mb-0">Data demo tersimpan di browser ini. <a href="#" id="btnReset">Reset data demo</a></p>
+        </div>
+      </div>
+      <div class="foot-bawah">&copy; 2026 RuAl. Peminjaman alat dan ruangan lab.</div>
+    </div>
+  </footer>
+
+  <!-- Toast notifikasi -->
+  <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+    <div id="toastApp" class="toast text-bg-dark" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-body fw-semibold"></div>
+    </div>
+  </div>
+
+  <!-- jQuery (Modul 5 & 6) -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+          integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <!-- Bootstrap JavaScript (Modul 5) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <!-- Plugin jQuery Validation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+  <!-- Script aplikasi -->
+  <script src="js/script.js"></script>
+</body>
+</html>
